@@ -1,103 +1,43 @@
 
 import React from 'react';
+import QuickDisplay from './QuickDisplay'
 import './QuickSearch.css';
 
 
-
+let quickUrl = 'https://zomatoajulypi.herokuapp.com/quicksearch'
 class QuickSearch extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            mealType: ''
+        }
+
+    }
 
     render() {
 
+        console.log('this.state quick', this.state)
+        const { mealType } = this.state
         return (
-        <div id="quickSearch">
-            <span id="QuickHeading">
-                Quick Search
-            </span>
-            <span id="QuickSubHeading">
-                Find Restaurants By Meal Type
-            </span>
-            <div className="tileContainer">
-                <div className="tileComponent1">
-                    <img src='../../images/lunch.png' alt="breakfast" />
-                </div>
-                <div className="tileComponent2">
-                    <div className="componentHeading">
-                        <a href="../listing/listing.html">Breakfast</a>
-                    </div>
-                    <div className="componentSubHeading">
-                        Best Deals For BreakFast
-                    </div>
-                </div>
-            </div>
-            <div className="tileContainer">
-                <div className="tileComponent1">
-                    <img src="../../images/nightlife.png" alt="breakfast" />
-                </div>
-                <div className="tileComponent2">
-                    <div className="componentHeading">
-                        <a href="../listing/listing.html">Breakfast</a>
-                    </div>
-                    <div className="componentSubHeading">
-                        Best Deals For BreakFast
-                    </div>
-                </div>
-            </div>
-            <div className="tileContainer">
-                <div className="tileComponent1">
-                    <img src="../../images/dinner.png" alt="breakfast" />
-                </div>
-                <div className="tileComponent2">
-                    <div className="componentHeading">
-                        <a href="../listing/listing.html">Breakfast</a>
-                    </div>
-                    <div className="componentSubHeading">
-                        Best Deals For BreakFast
-                    </div>
-                </div>
-            </div>
-            <div className="tileContainer">
-                <div className="tileComponent1">
-                    <img src="../../images/drinks.png" alt="breakfast" />
-                </div>
-                <div className="tileComponent2">
-                    <div className="componentHeading">
-                        <a href="../listing/listing.html">Breakfast</a>
-                    </div>
-                    <div className="componentSubHeading">
-                        Best Deals For BreakFast
-                    </div>
-                </div>
-            </div>
-            <div className="tileContainer">
-                <div className="tileComponent1">
-                    <img src="../../images/silver coin.jpg" alt="breakfast" />
-                </div>
-                <div className="tileComponent2">
-                    <div className="componentHeading">
-                        <a href="../listing/listing.html">Breakfast</a>
-                    </div>
-                    <div className="componentSubHeading">
-                        Best Deals For BreakFast
-                    </div>
-                </div>
-            </div>
-            <div className="tileContainer">
-                <div className="tileComponent1">
-                    <img src="../../images/snacks.png" alt="breakfast" />
-                </div>
-                <div className="tileComponent2">
-                    <div className="componentHeading">
-                        <a href="../listing/listing.html">Breakfast</a>
-                    </div>
-                    <div className="componentSubHeading">
-                        Best Deals For BreakFast
-                    </div>
-                </div>
-            </div>
+            <div id="quickSearch">
+                <span id="QuickHeading">
+                    Quick Search
+                </span>
+                <span id="QuickSubHeading">
+                    Find Restaurants By Meal Type
+                </span>
 
-        </div>
-    )
+                {mealType && <QuickDisplay mealTypeData={mealType} />}
 
-}
+            </div>
+        )
+
+    }
+    componentDidMount() {
+        fetch(quickUrl, { method: 'GET' })
+            .then(res => res.json())
+            .then(res => this.setState({ mealType: res }))
+    }
+
 }
 export default QuickSearch;
