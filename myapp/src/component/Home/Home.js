@@ -4,14 +4,18 @@ import Search from './Search';
 import QuickSearch from './QuickSearch';
 
 
-const Home = () => {
-    return (
-        <div>
-            <Search />
-            <QuickSearch />
-        </div>
-    )
+class Home extends React.Component {
 
+    render() {
+
+        return (
+            <div>
+                <Search />
+                <QuickSearch />
+            </div>
+        )
+
+    }
 }
 
 export default Home;

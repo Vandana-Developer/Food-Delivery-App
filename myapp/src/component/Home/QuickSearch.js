@@ -3,8 +3,12 @@ import React from 'react';
 import './QuickSearch.css';
 
 
-const QuickSearch = () => {
-    return (
+
+class QuickSearch extends React.Component {
+
+    render() {
+
+        return (
         <div id="quickSearch">
             <span id="QuickHeading">
                 Quick Search
@@ -95,5 +99,5 @@ const QuickSearch = () => {
     )
 
 }
-
+}
 export default QuickSearch;
