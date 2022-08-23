@@ -1,0 +1,53 @@
+footer {
+    margin-top: 2%;
+    height: 120px;
+    width: 100%;
+    background-color: #3b2632;
+    color: white;
+    text-align: center;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.footDiv {
+    float: left;
+    width: 32%;
+    border-right: 2px solid white;
+}
+
+.noborder {
+    border: none
+}
+
+
+@media screen and (max-width:1000px) {
+    .tileContainer {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .tileContainer {
+        width: 100%;
+        margin-top: 10%;
+    }
+
+    #heading {
+        margin-left: 0%;
+        margin-top: 40%;
+        font-size: 44px;
+    }
+
+    #dropdown {
+        width: 100%;
+        margin-left: 0%;
+        margin-top: 54%;
+    }
+
+    .logo {
+        margin-left: 28%;
+    }
+}
