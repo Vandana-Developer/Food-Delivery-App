@@ -8,8 +8,9 @@ const QuickDisplay = ({ mealTypeData }) => {
     console.log('mealType', mealTypeData)
 
     const listMeal = (data) => {
+        // const id=   `/listing/${val.mealtype_id}`
         return data.map(val => (
-            <Link to='/' key={val._id}>
+            <Link to={`/listing/${val.mealtype_id}`} key={val._id}>
                 <div className="tileContainer">
                     <div className="tileComponent1">
                         <img src={val.meal_image} alt={val.mealtype} />
